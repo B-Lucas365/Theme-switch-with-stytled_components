@@ -1,4 +1,3 @@
-'use client'
 import { HeaderContainer } from "./styles"
 import Switch from "react-switch";
 import { ThemeContext } from "styled-components";
@@ -24,8 +23,8 @@ export const Header = ({toggleTheme}: Props) => {
                 height={10}
                 width={30}
                 handleDiameter={20}
-                offColor={colors?.colors.accent200}
-                onColor={colors?.colors.primary300}
+                offColor={colors?.colors.primary300}
+                onColor={colors?.colors.accent200}
             />
         </HeaderContainer>
     )
