@@ -5,9 +5,9 @@ import StyledComponentsRegistry from "../styled-components/registry";
 import { GlobalStyles } from "../styles/global";
 import { Header } from "../components/Header";
 import light from "../styles/theme/light";
-import { useState } from "react";
 import dark from "../styles/theme/dark";
 import { ThemeProvider } from "styled-components";
+import { usePersistedState } from "../utils/usePersistedState";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,12 +17,13 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({children}: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState(light);
+  const [theme, setTheme] = usePersistedState('theme', light);
 
   const toggledTheme = () => {
     setTheme(theme.title === "light" ? dark : light);
   };
 
+  console.log(theme)
   return (
     <html lang="en">
       <body className={inter.className}>
